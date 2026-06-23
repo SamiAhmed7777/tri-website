@@ -95,11 +95,12 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 }
 .nav-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.25rem;
+  flex-wrap: wrap;
 }
 .nav-links a {
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 500;
 }
 .nav-links a:hover {
@@ -307,6 +308,38 @@ section .container > p { color: var(--text-muted); }
   color: var(--text-muted);
 }
 
+/* ========== Staking section ========== */
+.staking-section {
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
+}
+.staking-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+.staking-stat {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+}
+.staking-stat .stat-value {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.1;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  margin-bottom: 0.25rem;
+}
+.staking-stat .stat-label {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 /* ========== Explorer section ========== */
 .explorer-section {
   background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
@@ -315,6 +348,98 @@ section .container > p { color: var(--text-muted); }
 .explorer-section p {
   max-width: 600px;
   margin: 0 auto 2rem;
+}
+
+/* ========== FAQ ========== */
+.faq-item {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0;
+  margin: 0 0 0.75rem;
+  transition: border-color 0.15s ease;
+}
+.faq-item[open] {
+  border-color: var(--accent);
+}
+.faq-item summary {
+  cursor: pointer;
+  padding: 1rem 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  user-select: none;
+  list-style: none;
+  position: relative;
+  padding-right: 2.5rem;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--accent);
+  line-height: 1;
+}
+.faq-item[open] summary::after {
+  content: '−';
+}
+.faq-item summary:hover { color: var(--accent); }
+.faq-item > p {
+  padding: 0 1.25rem 1.25rem;
+  margin: 0;
+  color: var(--text-muted);
+}
+
+/* ========== Contact ========== */
+.contact-section {
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
+}
+.contact-lead {
+  max-width: 640px;
+  margin: 0 auto 2rem;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0 2rem;
+}
+.contact-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: border-color 0.15s ease;
+}
+.contact-card:hover {
+  border-color: var(--accent);
+}
+.contact-card h3 { color: var(--text); margin-top: 0.5rem; }
+.contact-card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+.contact-icon {
+  font-size: 1.6rem;
+  color: var(--accent);
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+.contact-note {
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0;
 }
 
 /* ========== Links list ========== */
@@ -346,11 +471,11 @@ footer {
 }
 
 /* ========== Mobile ========== */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .hero { padding: 64px 0 56px; }
   .hero-logo { width: 96px; height: 96px; }
   section { padding: 48px 0; }
-  .nav-links { gap: 1rem; font-size: 0.9rem; }
+  .nav-links { gap: 0.9rem; font-size: 0.85rem; }
   .brand span { display: none; }
   .download-card-header {
     flex-direction: column;
