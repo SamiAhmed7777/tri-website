@@ -1,0 +1,56 @@
+name: Update release RSS feed
+
+# Auto-regenerates releases.xml on the website whenever a new release
+# is published in the wallet repository, and also on a 6-hour schedule
+# as a backstop in case the release webhook is missed.
+
+on:
+  repository_dispatch:
+    types: [tri-release-published]
+  schedule:
+    - cron: '0 */6 * * *'  # every 6 hours
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-rss:
+    name: Fetch releases & regenerate RSS
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout website repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Fetch latest releases + write releases.xml
+        env:
+          GH_TOKEN: ${{ secrets.WEBSITE_RSS_TOKEN }}
+        run: |
+          python3 generate_rss.py
+
+      - name: Commit and push if changed
+        run: |
+          if git diff --quiet releases.xml; then
+            echo "releases.xml unchanged — nothing to push"
+          else
+            git config user.name "Krystie (auto)"
+            git config user.email "krystie@sami-ahmed.net"
+            git add releases.xml
+            git commit -m "rss: regenerate from latest triangles_v5 releases"
+            git push
+            echo "✓ releases.xml pushed"
+          fi
+
+  # Optional: trigger this workflow from the wallet repo on new releases.
+  # The wallet repo needs a workflow that calls:
+  #   curl -X POST \
+  #     -H "Authorization: token $WEBSITE_RSS_TOKEN" \
+  #     -H "Accept: application/vnd.github+json" \
+  #     https://api.github.com/repos/SamiAhmed7777/tri-website/dispatches \
+  #     -d '{"event_type": "tri-release-published"}'
+  # (Run as a final step in triangles_v5/.github/workflows/release.yml.)
