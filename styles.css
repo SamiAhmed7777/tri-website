@@ -469,6 +469,18 @@ footer {
   color: var(--text-muted);
   font-size: 0.9rem;
 }
+footer p { margin: 0 0 0.5em; }
+footer p:last-child { margin-bottom: 0; }
+.footer-tagline {
+  font-size: 0.92rem;
+  color: var(--text);
+}
+.footer-meta {
+  color: var(--text-muted);
+}
+.footer-tagline a {
+  margin-left: 0.25rem;
+}
 
 /* ========== Mobile ========== */
 @media (max-width: 700px) {
