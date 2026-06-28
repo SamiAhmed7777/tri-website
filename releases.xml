@@ -9,8 +9,32 @@
     <managingEditor>noreply@cryptographic-triangles.org (Cryptographic Triangles)</managingEditor>
     <webMaster>noreply@cryptographic-triangles.org (Cryptographic Triangles)</webMaster>
     <copyright>Copyright © 2014–2026 Cryptographic Triangles. Released under the MIT License.</copyright>
-    <lastBuildDate>Tue, 23 Jun 2026 09:07:19 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 28 Jun 2026 03:48:16 +0000</lastBuildDate>
     <generator>tri-website-rss-generator (GitHub Actions)</generator>
+    <item>
+      <title>v5.9.25</title>
+      <link>https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.9.25</link>
+      <guid isPermaLink="false">tri-release-v5.9.25-95c6c44c</guid>
+      <pubDate>Sun, 28 Jun 2026 01:09:29 +0000</pubDate>
+      <author>noreply@github.com (github-actions[bot])</author>
+      <category>release</category>
+      <description><![CDATA[<h2>What's Changed</h2>
+<ul><li>smsgDB: self-heal on unknown checksum type (RocksDB version drift) by @SamiAhmed7777 in https://github.com/SamiAhmed7777/triangles_v5/pull/10</li></ul>
+<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.9.24...v5.9.25</p>
+<p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.9.25/Cryptographic-Triangles-5.9.25-win-x64-setup.exe">Cryptographic-Triangles-5.9.25-win-x64-setup.exe</a></p>
+<p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.9.25">release notes on GitHub</a>.</p>]]></description>
+    </item>
+    <item>
+      <title>v5.9.24</title>
+      <link>https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.9.24</link>
+      <guid isPermaLink="false">tri-release-v5.9.24-98ccfe61</guid>
+      <pubDate>Wed, 24 Jun 2026 01:18:45 +0000</pubDate>
+      <author>noreply@github.com (github-actions[bot])</author>
+      <category>release</category>
+      <description><![CDATA[<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.9.23...v5.9.24</p>
+<p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.9.24/Cryptographic-Triangles-5.9.24-win-x64-setup.exe">Cryptographic-Triangles-5.9.24-win-x64-setup.exe</a></p>
+<p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.9.24">release notes on GitHub</a>.</p>]]></description>
+    </item>
     <item>
       <title>v5.9.23</title>
       <link>https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.9.23</link>
@@ -97,7 +121,6 @@ Fresh datadir + signed utxo-snapshot.bin:
       <author>noreply@github.com (github-actions[bot])</author>
       <category>release</category>
       <description><![CDATA[<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.9.17...v5.9.18</p>
-<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.9.17...v5.9.18</p>
 <p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.9.18/Cryptographic-Triangles-5.9.18-win-x64-setup.exe">Cryptographic-Triangles-5.9.18-win-x64-setup.exe</a></p>
 <p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.9.18">release notes on GitHub</a>.</p>]]></description>
     </item>
@@ -199,7 +222,7 @@ Fresh datadir + signed utxo-snapshot.bin:
       <author>noreply@github.com (SamiAhmed7777)</author>
       <category>release</category>
       <description><![CDATA[<p>Removes block 570 hardened checkpoint that was locking DNS2/DNS3 onto Fork A. Nodes can now sync naturally to the 2.2M+ main chain.</p>
-<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.9.6...v5.9.9</p>
+<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.9.8...v5.9.9</p>
 <p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.9.9/Cryptographic-Triangles-5.9.9-win-x64-setup.exe">Cryptographic-Triangles-5.9.9-win-x64-setup.exe</a></p>
 <p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.9.9">release notes on GitHub</a>.</p>]]></description>
     </item>
@@ -211,7 +234,7 @@ Fresh datadir + signed utxo-snapshot.bin:
       <author>noreply@github.com (SamiAhmed7777)</author>
       <category>release</category>
       <description><![CDATA[<p>IBD stall fix: restore IsInitialBlockDownload() time check, add block 570 checkpoint, fix version handler IBD bypass</p>
-<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.9.6...v5.9.8</p>
+<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.9.7...v5.9.8</p>
 <p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.9.8/Cryptographic-Triangles-5.9.8-win-x64-setup.exe">Cryptographic-Triangles-5.9.8-win-x64-setup.exe</a></p>
 <p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.9.8">release notes on GitHub</a>.</p>]]></description>
     </item>
@@ -265,8 +288,7 @@ See assets below for pre-built binaries.
 <h2>Binaries</h2>
 Built for Windows (Qt+daemon), Linux (Qt+daemon), macOS (Apple Silicon).
 ARM64 build via tri-pi repository.
-<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.95...v5.9.6</p>
-<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.95...v5.9.6</p>
+<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.9.5...v5.9.6</p>
 <p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.9.6/Cryptographic-Triangles-5.9.6-win-x64-setup.exe">Cryptographic-Triangles-5.9.6-win-x64-setup.exe</a></p>
 <p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.9.6">release notes on GitHub</a>.</p>]]></description>
     </item>
@@ -277,7 +299,7 @@ ARM64 build via tri-pi repository.
       <pubDate>Sun, 26 Apr 2026 10:06:47 +0000</pubDate>
       <author>noreply@github.com (github-actions[bot])</author>
       <category>release</category>
-      <description><![CDATA[<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.9.5...v5.95</p>
+      <description><![CDATA[<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.9.25...v5.95</p>
 <p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.95/Cryptographic-Triangles-5.95-win-x64-setup.exe">Cryptographic-Triangles-5.95-win-x64-setup.exe</a></p>
 <p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.95">release notes on GitHub</a>.</p>]]></description>
     </item>
@@ -390,13 +412,11 @@ ARM64 build via tri-pi repository.
 <li><strong>Files</strong>: <code>src/rpcmining.cpp</code></li></ul>
 <p>---</p>
 <h2>✅ Consensus Safety</h2>
-<p><strong>All changes are consensus-safe:</strong><br><ul><li>✅ No fork risk</li><br><li>✅ No validation rule changes</li><br><li>✅ Existing chain data remains valid</li><br><li>✅ Safe to deploy immediately</li></ul></p>
-<p>---</p>
-<h2>📈 Code Quality</h2>
-<ul><li><strong>+80 lines</strong> of critical fixes</li>
-<li><strong>-34 lines</strong> of duplicate code removed</li>
-<li><strong>4 files</strong> improved</li>
-<li><strong>Cleaner</strong>, more maintainable codebase</li></ul>
+<p><strong>All changes are consensus-safe:</strong></p>
+<ul><li>✅ No fork risk</li>
+<li>✅ No validation rule changes</li>
+<li>✅ Existing chain data remains valid</li>
+<li>✅ Safe to deploy immediately</li></ul>
 <p>---</p>
 <h2>🚀 Deployment</h2>
 <h3>Upgrading from v5.8.1 or earlier:</h3>
@@ -405,17 +425,6 @@ ARM64 build via tri-pi repository.
 3. Replace the binary
 4. Restart
 <p><strong>No special migration needed</strong> - just drop in the new binary!</p>
-<p>---</p>
-<h2>📦 What's Included</h2>
-<ul><li><code>trianglesd</code> - Daemon for headless operation</li>
-<li><code>triangles-qt</code> - GUI wallet</li>
-<li><code>triangles-cli</code> - Command-line interface</li>
-<li>All platforms: Linux (x64, ARM64), macOS (Intel, ARM64), Windows (x64)</li></ul>
-<p>---</p>
-<h2>🔗 Links</h2>
-<ul><li><strong>Source</strong>: https://github.com/SamiAhmed7777/triangles_v5</li>
-<li><strong>Explorer</strong>: https://blocks.cryptographic-triangles.org</li>
-<li><strong>Website</strong>: https://cryptographic-triangles.org</li></ul>
 <p>---</p>
 <p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.8.1...v5.8.2</p>
 <p>Built with ❤️ by the Triangles community</p>
@@ -454,6 +463,201 @@ ARM64 build via tri-pi repository.
       <description><![CDATA[<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.7.8...v5.7.9</p>
 <p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.7.9/Cryptographic-Triangles-5.7.9-win-x64-setup.exe">Cryptographic-Triangles-5.7.9-win-x64-setup.exe</a></p>
 <p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.7.9">release notes on GitHub</a>.</p>]]></description>
+    </item>
+    <item>
+      <title>v5.7.8</title>
+      <link>https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.7.8</link>
+      <guid isPermaLink="false">tri-release-v5.7.8-ec6ac79e</guid>
+      <pubDate>Sat, 11 Apr 2026 00:42:05 +0000</pubDate>
+      <author>noreply@github.com (github-actions[bot])</author>
+      <category>release</category>
+      <description><![CDATA[<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.7.7...v5.7.8</p>
+<p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.7.8/Cryptographic-Triangles-5.7.8-win-x64-setup.exe">Cryptographic-Triangles-5.7.8-win-x64-setup.exe</a></p>
+<p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.7.8">release notes on GitHub</a>.</p>]]></description>
+    </item>
+    <item>
+      <title>v5.7.7</title>
+      <link>https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.7.7</link>
+      <guid isPermaLink="false">tri-release-v5.7.7-cba26670</guid>
+      <pubDate>Fri, 10 Apr 2026 06:24:28 +0000</pubDate>
+      <author>noreply@github.com (github-actions[bot])</author>
+      <category>release</category>
+      <description><![CDATA[<h2>What's Changed</h2>
+<em> Code cleanup: Documentation and C++11 compliance fixes by @SamiAhmed7777 in https://github.com/SamiAhmed7777/triangles_v5/pull/1
+</em> Fix C++11 literal-suffix warnings by @SamiAhmed7777 in https://github.com/SamiAhmed7777/triangles_v5/pull/2
+<em> Fix version detection: prioritize exact tag match in genbuild.sh by @SamiAhmed7777 in https://github.com/SamiAhmed7777/triangles_v5/pull/3
+<h2>New Contributors</h2>
+</em> @SamiAhmed7777 made their first contribution in https://github.com/SamiAhmed7777/triangles_v5/pull/1
+<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.7.6...v5.7.7</p>
+<p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.7.7/Cryptographic-Triangles-5.7.7-win-x64-setup.exe">Cryptographic-Triangles-5.7.7-win-x64-setup.exe</a></p>
+<p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.7.7">release notes on GitHub</a>.</p>]]></description>
+    </item>
+    <item>
+      <title>v5.7.6</title>
+      <link>https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.7.6</link>
+      <guid isPermaLink="false">tri-release-v5.7.6-a03ae93f</guid>
+      <pubDate>Wed, 08 Apr 2026 20:36:48 +0000</pubDate>
+      <author>noreply@github.com (github-actions[bot])</author>
+      <category>release</category>
+      <description><![CDATA[<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.7.5...v5.7.6</p>
+<p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.7.6/Cryptographic-Triangles-5.7.6-win-x64-setup.exe">Cryptographic-Triangles-5.7.6-win-x64-setup.exe</a></p>
+<p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.7.6">release notes on GitHub</a>.</p>]]></description>
+    </item>
+    <item>
+      <title>v5.7.5</title>
+      <link>https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.7.5</link>
+      <guid isPermaLink="false">tri-release-v5.7.5-29e8a05a</guid>
+      <pubDate>Sun, 05 Apr 2026 11:12:56 +0000</pubDate>
+      <author>noreply@github.com (github-actions[bot])</author>
+      <category>release</category>
+      <description><![CDATA[<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.5.6...v5.7.5</p>
+<p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.7.5/Cryptographic-Triangles-5.7.5-win-x64-setup.exe">Cryptographic-Triangles-5.7.5-win-x64-setup.exe</a></p>
+<p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.7.5">release notes on GitHub</a>.</p>]]></description>
+    </item>
+    <item>
+      <title>v5.5.6</title>
+      <link>https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.5.6</link>
+      <guid isPermaLink="false">tri-release-v5.5.6-7b44507c</guid>
+      <pubDate>Sat, 04 Apr 2026 10:29:28 +0000</pubDate>
+      <author>noreply@github.com (github-actions[bot])</author>
+      <category>release</category>
+      <description><![CDATA[<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.5.5...v5.5.6</p>
+<p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.5.6/Cryptographic-Triangles-5.5.6-win-x64-setup.exe">Cryptographic-Triangles-5.5.6-win-x64-setup.exe</a></p>
+<p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.5.6">release notes on GitHub</a>.</p>]]></description>
+    </item>
+    <item>
+      <title>v5.5.5</title>
+      <link>https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.5.5</link>
+      <guid isPermaLink="false">tri-release-v5.5.5-9cb91cdf</guid>
+      <pubDate>Sat, 04 Apr 2026 08:33:56 +0000</pubDate>
+      <author>noreply@github.com (github-actions[bot])</author>
+      <category>release</category>
+      <description><![CDATA[<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.5.4...v5.5.5</p>
+<p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.5.5/Cryptographic-Triangles-5.5.5-win-x64-setup.exe">Cryptographic-Triangles-5.5.5-win-x64-setup.exe</a></p>
+<p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.5.5">release notes on GitHub</a>.</p>]]></description>
+    </item>
+    <item>
+      <title>v5.5.4</title>
+      <link>https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.5.4</link>
+      <guid isPermaLink="false">tri-release-v5.5.4-7d2400a2</guid>
+      <pubDate>Fri, 03 Apr 2026 23:04:40 +0000</pubDate>
+      <author>noreply@github.com (github-actions[bot])</author>
+      <category>release</category>
+      <description><![CDATA[<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.5.3...v5.5.4</p>
+<p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.5.4/Cryptographic-Triangles-5.5.4-win-x64-setup.exe">Cryptographic-Triangles-5.5.4-win-x64-setup.exe</a></p>
+<p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.5.4">release notes on GitHub</a>.</p>]]></description>
+    </item>
+    <item>
+      <title>v5.5.3</title>
+      <link>https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.5.3</link>
+      <guid isPermaLink="false">tri-release-v5.5.3-f76b48e6</guid>
+      <pubDate>Fri, 03 Apr 2026 08:06:42 +0000</pubDate>
+      <author>noreply@github.com (github-actions[bot])</author>
+      <category>release</category>
+      <description><![CDATA[<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.5.2...v5.5.3</p>
+<p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.5.3/Cryptographic-Triangles-5.5.3-win-x64-setup.exe">Cryptographic-Triangles-5.5.3-win-x64-setup.exe</a></p>
+<p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.5.3">release notes on GitHub</a>.</p>]]></description>
+    </item>
+    <item>
+      <title>v5.5.2</title>
+      <link>https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.5.2</link>
+      <guid isPermaLink="false">tri-release-v5.5.2-5414c0d2</guid>
+      <pubDate>Fri, 03 Apr 2026 07:18:56 +0000</pubDate>
+      <author>noreply@github.com (github-actions[bot])</author>
+      <category>release</category>
+      <description><![CDATA[<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.5.1...v5.5.2</p>
+<p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.5.2/Cryptographic-Triangles-5.5.2-win-x64-setup.exe">Cryptographic-Triangles-5.5.2-win-x64-setup.exe</a></p>
+<p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.5.2">release notes on GitHub</a>.</p>]]></description>
+    </item>
+    <item>
+      <title>v5.5.1</title>
+      <link>https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.5.1</link>
+      <guid isPermaLink="false">tri-release-v5.5.1-23eee1dd</guid>
+      <pubDate>Fri, 03 Apr 2026 06:50:04 +0000</pubDate>
+      <author>noreply@github.com (SamiAhmed7777)</author>
+      <category>release</category>
+      <description><![CDATA[<p>Fix Tor v3 onion checksum: SHA-256 → SHA3-256</p>
+<p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.5.1/Cryptographic-Triangles-5.5.1-win-x64-setup.exe">Cryptographic-Triangles-5.5.1-win-x64-setup.exe</a></p>
+<p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.5.1">release notes on GitHub</a>.</p>]]></description>
+    </item>
+    <item>
+      <title>v5.5.0</title>
+      <link>https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.5.0</link>
+      <guid isPermaLink="false">tri-release-v5.5.0-21d71312</guid>
+      <pubDate>Fri, 03 Apr 2026 06:50:02 +0000</pubDate>
+      <author>noreply@github.com (SamiAhmed7777)</author>
+      <category>release</category>
+      <description><![CDATA[<p>Dynamic HTTP seed discovery, remove hardcoded seeds</p>
+<p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.5.0/Cryptographic-Triangles-5.5.0-win-x64-setup.exe">Cryptographic-Triangles-5.5.0-win-x64-setup.exe</a></p>
+<p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.5.0">release notes on GitHub</a>.</p>]]></description>
+    </item>
+    <item>
+      <title>v5.4.4</title>
+      <link>https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.4.4</link>
+      <guid isPermaLink="false">tri-release-v5.4.4-e9d2f867</guid>
+      <pubDate>Fri, 03 Apr 2026 06:50:01 +0000</pubDate>
+      <author>noreply@github.com (SamiAhmed7777)</author>
+      <category>release</category>
+      <description><![CDATA[<p>Updated seed nodes (7 onion seeds)</p>
+<p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.4.4/Cryptographic-Triangles-5.4.4-win-x64-setup.exe">Cryptographic-Triangles-5.4.4-win-x64-setup.exe</a></p>
+<p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.4.4">release notes on GitHub</a>.</p>]]></description>
+    </item>
+    <item>
+      <title>v5.4.3</title>
+      <link>https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.4.3</link>
+      <guid isPermaLink="false">tri-release-v5.4.3-3973cf39</guid>
+      <pubDate>Fri, 03 Apr 2026 06:49:59 +0000</pubDate>
+      <author>noreply@github.com (SamiAhmed7777)</author>
+      <category>release</category>
+      <description><![CDATA[<p>Tor v3 support, hidden service backend, health monitoring</p>
+<p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.4.3/Cryptographic-Triangles-5.4.3-win-x64-setup.exe">Cryptographic-Triangles-5.4.3-win-x64-setup.exe</a></p>
+<p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.4.3">release notes on GitHub</a>.</p>]]></description>
+    </item>
+    <item>
+      <title>v5.4.2</title>
+      <link>https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.4.2</link>
+      <guid isPermaLink="false">tri-release-v5.4.2-75efcfe9</guid>
+      <pubDate>Sat, 28 Mar 2026 08:07:53 +0000</pubDate>
+      <author>noreply@github.com (github-actions[bot])</author>
+      <category>release</category>
+      <description><![CDATA[<h2>What's Changed</h2>
+<ul><li>Fix version detection: prioritize exact tag match in genbuild.sh by @SamiAhmed7777 in https://github.com/SamiAhmed7777/triangles_v5/pull/3</li></ul>
+<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.4.1...v5.4.2</p>
+<p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.4.2/Cryptographic-Triangles-5.4.2-win-x64-setup.exe">Cryptographic-Triangles-5.4.2-win-x64-setup.exe</a></p>
+<p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.4.2">release notes on GitHub</a>.</p>]]></description>
+    </item>
+    <item>
+      <title>v5.4.1</title>
+      <link>https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.4.1</link>
+      <guid isPermaLink="false">tri-release-v5.4.1-af10dbe5</guid>
+      <pubDate>Sat, 28 Mar 2026 05:06:37 +0000</pubDate>
+      <author>noreply@github.com (github-actions[bot])</author>
+      <category>release</category>
+      <description><![CDATA[<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.4.0...v5.4.1</p>
+<p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.4.1/Cryptographic-Triangles-5.4.1-win-x64-setup.exe">Cryptographic-Triangles-5.4.1-win-x64-setup.exe</a></p>
+<p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.4.1">release notes on GitHub</a>.</p>]]></description>
+    </item>
+    <item>
+      <title>v5.4.0</title>
+      <link>https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.4.0</link>
+      <guid isPermaLink="false">tri-release-v5.4.0-910a4d8a</guid>
+      <pubDate>Fri, 27 Mar 2026 08:34:53 +0000</pubDate>
+      <author>noreply@github.com (github-actions[bot])</author>
+      <category>release</category>
+      <description><![CDATA[<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.3.9...v5.4.0</p>
+<p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.4.0/Cryptographic-Triangles-5.4.0-win-x64-setup.exe">Cryptographic-Triangles-5.4.0-win-x64-setup.exe</a></p>
+<p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.4.0">release notes on GitHub</a>.</p>]]></description>
+    </item>
+    <item>
+      <title>v5.3.9</title>
+      <link>https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.3.9</link>
+      <guid isPermaLink="false">tri-release-v5.3.9-d69fab75</guid>
+      <pubDate>Fri, 27 Mar 2026 05:43:15 +0000</pubDate>
+      <author>noreply@github.com (github-actions[bot])</author>
+      <category>release</category>
+      <description><![CDATA[<p><strong>Full Changelog</strong>: https://github.com/SamiAhmed7777/triangles_v5/compare/v5.3.9°</p>
+<p><strong>Download:</strong> <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/download/v5.3.9/Cryptographic-Triangles-5.3.9-win-x64-setup.exe">Cryptographic-Triangles-5.3.9-win-x64-setup.exe</a></p>
+<p><strong>SHA-256:</strong> Available in the <a href="https://github.com/SamiAhmed7777/triangles_v5/releases/tag/v5.3.9">release notes on GitHub</a>.</p>]]></description>
     </item>
   </channel>
 </rss>
