@@ -209,6 +209,13 @@ section .container > p { color: var(--text-muted); }
   gap: 1.25rem;
   margin-top: 1.5rem;
 }
+/* Seed-list grid: cards carry the long I2P base32 addresses (60 chars),
+   so each card needs more horizontal room than a typical feature card.
+   360px min keeps 3-across on wide desktop and stacks to single column
+   on tablet/phone so the addresses wrap cleanly. */
+.features.features-seeds {
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+}
 .feature {
   background: var(--bg-alt);
   border: 1px solid var(--border);
@@ -563,4 +570,179 @@ footer p:last-child { margin-bottom: 0; }
   .topnav {
     background: rgba(255, 255, 255, 0.85);
   }
+}
+/* ===== Dev contact address block (added 2026-06-23) ===== */
+.dev-address-block {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(227, 33, 5, 0.2);
+  text-align: left;
+}
+.dev-address-label,
+.dev-proof-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #888;
+  margin-bottom: 0.25rem;
+  margin-top: 0.5rem;
+}
+.dev-address {
+  display: block;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  word-break: break-all;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(227, 33, 5, 0.3);
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  color: #e32105;
+}
+.dev-proof-details {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+.dev-proof-details summary {
+  cursor: pointer;
+  color: #e32105;
+  user-select: none;
+}
+.dev-proof {
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+}
+.dev-proof-text,
+.dev-signature {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  word-break: break-all;
+  white-space: pre-wrap;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(227, 33, 5, 0.2);
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  margin: 0 0 0.5rem 0;
+  color: inherit;
+  display: block;
+}
+.dev-proof-verify {
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 0.5rem;
+}
+.dev-proof-verify code {
+  font-size: 0.7rem;
+  word-break: break-all;
+}
+
+/* Live block counter — animated when blocks arrive */
+.live-stat .stat-value {
+  transition: color 0.4s ease, text-shadow 0.4s ease;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Long unbreakable strings (I2P base32, hashes) must wrap inside any
+   container — not just .hash-hint. Generic rule plus a feature-card
+   override so the seed-list I2P addresses never get clipped. */
+code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
+.feature p code,
+.feature code {
+  display: inline-block;
+  max-width: 100%;
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
+.live-stat .stat-value.flash {
+  color: #4ade80;
+  text-shadow: 0 0 12px rgba(74, 222, 128, 0.6);
+}
+.live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  vertical-align: middle;
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.7);
+  animation: live-pulse 1.6s ease-in-out infinite;
+}
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.85); }
+}
+
+/* ========== Install via package manager ========== */
+.install-via-heading {
+  margin-top: 2.5rem;
+  margin-bottom: 0.25rem;
+  font-size: 1.35rem;
+}
+.install-via-lead {
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+.install-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 1.5rem;
+}
+.install-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.25rem 1rem;
+}
+.install-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.install-card-header h4 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+.install-status {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  white-space: nowrap;
+}
+.status-live {
+  background: rgba(0, 180, 90, 0.12);
+  color: #0a9b4f;
+  border: 1px solid rgba(0, 180, 90, 0.35);
+}
+.status-personal {
+  background: rgba(180, 140, 0, 0.12);
+  color: #b08000;
+  border: 1px solid rgba(180, 140, 0, 0.35);
+}
+.install-card p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0 0 0.75rem;
+}
+.install-meta {
+  margin-top: 0.75rem !important;
+  font-size: 0.82rem !important;
+  color: var(--text-muted);
+}
+.install-meta a { color: var(--accent); }
+
+@media (max-width: 720px) {
+  .install-grid { grid-template-columns: 1fr; }
 }

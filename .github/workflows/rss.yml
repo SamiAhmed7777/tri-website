@@ -27,6 +27,9 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install deps
+        run: pip install packaging==24.2
+
       - name: Fetch latest releases + write releases.xml
         env:
           GH_TOKEN: ${{ secrets.WEBSITE_RSS_TOKEN }}

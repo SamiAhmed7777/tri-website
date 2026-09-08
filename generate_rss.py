@@ -203,10 +203,13 @@ def _is_desktop_release(r):
 
 
 if __name__ == "__main__":
+    import os
     releases = fetch_releases()
     clean = [r for r in releases if _is_desktop_release(r)]
     print(f"Found {len(releases)} releases total, {len(clean)} desktop (filtering prereleases, dist-test, tri-pi-*)")
     rss = build_rss(clean)
-    with open('/tmp/tri-website/releases.xml', 'w', encoding='utf-8') as f:
+    # Write next to this script (the workflow checkout), not a fixed /tmp path.
+    out_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "releases.xml")
+    with open(out_path, 'w', encoding='utf-8') as f:
         f.write(rss)
-    print(f"Written /tmp/tri-website/releases.xml ({len(rss):,} bytes, {len(clean)} items)")
+    print(f"Written {out_path} ({len(rss):,} bytes, {len(clean)} items)")
