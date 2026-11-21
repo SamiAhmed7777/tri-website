@@ -160,7 +160,7 @@ code {
 .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 14px; padding-bottom: 14px; }
 .brand { display: flex; align-items: center; color: var(--text); text-decoration: none; }
 .brand:hover { color: var(--text); text-decoration: none; }
-.brand-wordmark { height: 52px; width: auto; display: block; }
+.brand-wordmark { height: 76px; width: auto; display: block; }
 .nav-links { display: flex; align-items: center; gap: 1.3rem; flex-wrap: wrap; }
 .nav-links a { color: var(--muted); font-size: 0.93rem; font-weight: 500; }
 .nav-links a:hover { color: var(--text); text-decoration: none; }
@@ -455,6 +455,7 @@ footer { background: #0b0c0d; border-top: 1px solid var(--border); padding: 56px
   .nav-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
   .nav-links { gap: 0.9rem; }
   .nav-cta { display: none; }
+  .brand-wordmark { height: 56px; }
   .stat-strip { grid-template-columns: 1fr 1fr; }
   .stat { padding-left: 16px; }
   .stat:nth-child(odd) { border-left: none; padding-left: 0; }
