@@ -154,6 +154,12 @@ code {
 .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 14px; padding-bottom: 14px; }
 .brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-family: "Sora", sans-serif; font-weight: 600; font-size: 0.98rem; }
 .brand:hover { color: var(--text); text-decoration: none; }
+.hero-wordmark {
+  display: block;
+  height: auto;
+  width: min(340px, 72vw);
+  margin-bottom: 1.4rem;
+}
 .nav-links { display: flex; align-items: center; gap: 1.3rem; flex-wrap: wrap; }
 .nav-links a { color: var(--muted); font-size: 0.93rem; font-weight: 500; }
 .nav-links a:hover { color: var(--text); text-decoration: none; }
