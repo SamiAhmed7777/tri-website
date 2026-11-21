@@ -1,0 +1,11 @@
+Fonts in this directory are self-hosted subsets served from cryptographic-triangles.org.
+No external font CDN is used (the site makes zero third-party requests).
+
+- Sora (600, 700) — Copyright 2020, The Sora Project Author (Catharsis Fonts),
+  SIL Open Font License 1.1 — https://github.com/etunni/sora
+- IBM Plex Sans (400, 500, 600) and IBM Plex Mono (400, 500) —
+  Copyright 2017, IBM Corp., SIL Open Font License 1.1 — https://github.com/IBM/plex
+
+WOFF2 files are latin-subset builds distributed by Fontsource
+(https://fontsource.org), which redistributes the SIL OFL fonts. The OFL text
+is available at https://openfontlicense.org.

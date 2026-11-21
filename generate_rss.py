@@ -1,23 +1,26 @@
 #!/usr/bin/env python3
-"""Generate releases.xml (RSS 2.0) from GitHub releases API."""
+"""Generate releases.xml (RSS 2.0) from the GitHub releases of both Triangles clients:
+the classic C++/Qt wallet (triangles_v5) and the Rust client (tri7)."""
 import json
 import urllib.request
-import urllib.parse
 import datetime
 import hashlib
 import re
 from packaging.version import Version, InvalidVersion
 from xml.sax.saxutils import escape
 
-REPO = "SamiAhmed7777/triangles_v5"
+SOURCES = [
+    ("classic-wallet", "SamiAhmed7777/triangles_v5"),
+    ("tri7", "SamiAhmed7777/tri7"),
+]
 SITE_URL = "https://cryptographic-triangles.org"
 SITE_TITLE = "Cryptographic Triangles — Release Notes"
-SITE_DESC = "Official release notes for the Cryptographic Triangles Qt Wallet. Subscribe to get notified when new versions ship."
+SITE_DESC = ("Official release notes for the Cryptographic Triangles clients (classic C++/Qt "
+             "wallet and the tri7 Rust client). Subscribe to get notified when new versions ship.")
 
-API_URL = f"https://api.github.com/repos/{REPO}/releases?per_page=100"
-
-def fetch_releases():
-    req = urllib.request.Request(API_URL, headers={"User-Agent": "tri-website-rss-generator"})
+def fetch_releases(repo):
+    api = f"https://api.github.com/repos/{repo}/releases?per_page=100"
+    req = urllib.request.Request(api, headers={"User-Agent": "tri-website-rss-generator"})
     with urllib.request.urlopen(req) as r:
         return json.loads(r.read())
 
@@ -46,9 +49,7 @@ def md_to_html(md):
     # Paragraphs (double newline).
     # If a paragraph contains a block-level element (<ul>, <ol>, <pre>),
     # split it: the block element becomes its own block, and any inline
-    # content before/after is wrapped in its own <p>. This prevents
-    # invalid HTML5 like <p>...<ul>...</ul></p> from being emitted when
-    # the markdown is e.g. "Lead text:\n- item\n- item".
+    # content before/after is wrapped in its own <p>.
     parts = re.split(r'\n\s*\n', md)
     out = []
     block_re = re.compile(r'(<ul\b.*?</ul>|<ol\b.*?</ol>|<pre\b.*?</pre>)', re.DOTALL)
@@ -59,7 +60,6 @@ def md_to_html(md):
         if p.startswith('<h') or p.startswith('<ul') or p.startswith('<pre'):
             out.append(p)
             continue
-        # Split paragraph into pre-block / block / post-block segments.
         segments = block_re.split(p)
         for seg in segments:
             seg = seg.strip()
@@ -76,11 +76,8 @@ def _dedup_html_paragraphs(html):
     """Remove consecutive duplicate <p>...</p> blocks in rendered HTML.
 
     GitHub Actions sometimes writes the '**Full Changelog**:' line twice in
-    auto-generated release bodies, sometimes with slightly different URLs
-    (one semantic, one commit-level). After our semantic-URL rewrite both
-    lines collapse to the same <p>...</p> block. This pass removes any
-    consecutive run of identical <p>...</p> blocks so the feed shows
-    just one. First occurrence wins.
+    auto-generated release bodies, sometimes with slightly different URLs.
+    First occurrence wins.
     """
     if not html:
         return html
@@ -100,14 +97,8 @@ def _dedup_html_paragraphs(html):
     return ''.join(out)
 
 
-def _semantic_compare_urls(releases):
-    """Build a map of tag -> correct prev-tag compare URL.
-
-    GitHub's auto-generated release body sometimes uses a commit SHA in
-    the 'compare/...' URL instead of the immediately previous version tag.
-    This computes the canonical prev-tag -> this-tag URL by sorting all
-    tags and using the version immediately preceding each one.
-    """
+def _semantic_compare_urls(releases, repo):
+    """Build a map of tag -> correct prev-tag compare URL, per repository."""
     tag_versions = []
     for r in releases:
         tag = r.get('tag_name', '') or ''
@@ -120,24 +111,34 @@ def _semantic_compare_urls(releases):
     urls = {}
     for i, (_, tag) in enumerate(tag_versions):
         if i == 0:
-            urls[tag] = f"https://github.com/{REPO}/compare/{tag}\u00b0"
+            urls[tag] = f"https://github.com/{repo}/compare/{tag}"
         else:
             prev_tag = tag_versions[i - 1][1]
-            urls[tag] = f"https://github.com/{REPO}/compare/{prev_tag}...{tag}"
+            urls[tag] = f"https://github.com/{repo}/compare/{prev_tag}...{tag}"
     return urls
 
 
-def build_rss(releases):
+def _installer_asset(r, tag, repo):
+    """Pick the Windows setup.exe asset if present; else fall back to the release page."""
+    for a in r.get('assets', []) or []:
+        name = a.get('name', '')
+        if name.endswith('setup.exe'):
+            return a.get('browser_download_url'), name
+    return f"https://github.com/{repo}/releases/tag/{tag}", None
+
+
+def build_rss(releases_with_repo):
     now = datetime.datetime.now(datetime.timezone.utc).strftime("%a, %d %b %Y %H:%M:%S +0000")
     items = []
-    compare_urls = _semantic_compare_urls(releases)
-    for r in releases:
+    compare_cache = {}
+    for label, repo, r in releases_with_repo:
+        if (repo, 'urls') not in compare_cache:
+            compare_cache[(repo, 'urls')] = _semantic_compare_urls(
+                [x for (l, rp, x) in releases_with_repo if rp == repo], repo)
+        compare_urls = compare_cache[(repo, 'urls')]
         tag = r.get('tag_name', '')
         name = r.get('name') or tag
         body = r.get('body') or ''
-        # Rewrite the Full Changelog URL in the body to use the canonical
-        # prev-tag -> this-tag compare URL instead of whatever GitHub
-        # auto-generated (which is sometimes a commit SHA).
         if tag in compare_urls:
             body = re.sub(
                 r'\*\*Full Changelog\*\*:\s*https?://[^\s)]+',
@@ -149,29 +150,36 @@ def build_rss(releases):
         try:
             dt = datetime.datetime.fromisoformat(published.replace('Z', '+00:00'))
             rss_date = dt.strftime("%a, %d %b %Y %H:%M:%S +0000")
+            sort_key = dt
         except Exception:
             rss_date = now
-        guid = f"tri-release-{tag}-{hashlib.md5(html_url.encode()).hexdigest()[:8]}"
-        # Description
+            sort_key = datetime.datetime.now(datetime.timezone.utc)
+        guid = f"tri-release-{label}-{tag}-{hashlib.md5(html_url.encode()).hexdigest()[:8]}"
         desc = md_to_html(body)
         if not desc.strip():
-            desc = f'<p>Release {escape(tag)} of Cryptographic Triangles Qt Wallet.</p>'
+            desc = f'<p>Release {escape(tag)} of Cryptographic Triangles ({escape(label)}).</p>'
         desc = _dedup_html_paragraphs(desc)
-        # Author
         author = r.get('author', {}).get('login', 'SamiAhmed7777')
-        # Installer link
-        installer = f"https://github.com/{REPO}/releases/download/{tag}/Cryptographic-Triangles-{tag.lstrip('v')}-win-x64-setup.exe"
-        items.append(f"""    <item>
+        installer, installer_name = _installer_asset(r, tag, repo)
+        if installer_name:
+            download_html = (f'<p><strong>Download:</strong> <a href="{installer}">'
+                             f'{escape(installer_name)}</a></p>')
+        else:
+            download_html = (f'<p><strong>Download:</strong> <a href="{installer}">'
+                             f'release page for {escape(tag)}</a></p>')
+        items.append((sort_key, f"""    <item>
       <title>{escape(name)}</title>
       <link>{html_url}</link>
       <guid isPermaLink="false">{guid}</guid>
       <pubDate>{rss_date}</pubDate>
       <author>noreply@github.com ({escape(author)})</author>
       <category>release</category>
+      <category>{escape(label)}</category>
       <description><![CDATA[{desc}
-<p><strong>Download:</strong> <a href="{installer}">Cryptographic-Triangles-{escape(tag.lstrip('v'))}-win-x64-setup.exe</a></p>
-<p><strong>SHA-256:</strong> Available in the <a href="{html_url}">release notes on GitHub</a>.</p>]]></description>
-    </item>""")
+{download_html}<p><strong>SHA-256:</strong> Published in the <a href="{html_url}">release notes on GitHub</a> and on the website's download section.</p>]]></description>
+    </item>"""))
+    # newest first, regardless of source repo
+    items.sort(key=lambda x: x[0], reverse=True)
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
@@ -185,13 +193,13 @@ def build_rss(releases):
     <copyright>Copyright © 2014–2026 Cryptographic Triangles. Released under the MIT License.</copyright>
     <lastBuildDate>{now}</lastBuildDate>
     <generator>tri-website-rss-generator (GitHub Actions)</generator>
-{chr(10).join(items)}
+{chr(10).join(x[1] for x in items)}
   </channel>
 </rss>
 """
 
 def _is_desktop_release(r):
-    """Desktop wallet release = stable, not a test tag, not a tri-pi ARM build."""
+    """Desktop release = stable, not a test tag, not a tri-pi ARM build."""
     tag = r.get('tag_name', '') or ''
     if r.get('prerelease'):
         return False
@@ -201,15 +209,15 @@ def _is_desktop_release(r):
         return False
     return True
 
-
 if __name__ == "__main__":
     import os
-    releases = fetch_releases()
-    clean = [r for r in releases if _is_desktop_release(r)]
-    print(f"Found {len(releases)} releases total, {len(clean)} desktop (filtering prereleases, dist-test, tri-pi-*)")
-    rss = build_rss(clean)
-    # Write next to this script (the workflow checkout), not a fixed /tmp path.
+    merged = []
+    for label, repo in SOURCES:
+        rels = [r for r in fetch_releases(repo) if _is_desktop_release(r)]
+        print(f"{repo}: {len(rels)} desktop releases")
+        merged.extend((label, repo, r) for r in rels)
+    rss = build_rss(merged)
     out_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "releases.xml")
     with open(out_path, 'w', encoding='utf-8') as f:
         f.write(rss)
-    print(f"Written {out_path} ({len(rss):,} bytes, {len(clean)} items)")
+    print(f"Written {out_path} ({len(rss):,} bytes, {len(merged)} items)")
