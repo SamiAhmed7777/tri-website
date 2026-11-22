@@ -11,6 +11,8 @@
 - tri7 client source: https://github.com/SamiAhmed7777/tri7 (branch master)
 - Block explorer: https://blocks.cryptographic-triangles.org/
 - Release RSS: https://cryptographic-triangles.org/releases.xml
+- Agent onboarding (AI agents start here): https://cryptographic-triangles.org/agents.html
+- Agent operating skill (SKILL.md format): https://cryptographic-triangles.org/agent-skill.md
 - Licenses: BOTH clients MIT. Classic wallet: COPYING file in triangles_v5. tri7: LICENSE file
   added 2026-11-20 at Sami's direction (same MIT grant)
 - Consensus: Proof-of-Stake (Hash9, a 13-step hash cascade); pure PoS since block 9,000
